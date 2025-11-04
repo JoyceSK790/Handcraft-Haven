@@ -21,6 +21,11 @@ body {
 :target {
   scroll-margin-top: 100px;
 }
+@media (max-width: 768px) {
+  body {
+    padding-top: 300px; /* slightly more for mobile */
+  }
+}
 /* ========== NAVBAR ========== */
 header {
   background: #0E0E0E;
@@ -438,4 +443,5 @@ section.visible {
     width: 20px; 
     height: 20px; 
     margin-right: 10px; 
+
 }
