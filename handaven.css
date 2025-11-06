@@ -27,7 +27,7 @@ body {
 
 /* ========== NAVBAR ========== */
 header {
-  background: rgba(14, 14, 14, 0.086); /* slightly transparent black */
+  background: rgba(14, 14, 14, 0.086); 
   backdrop-filter: blur(6px); /* adds a soft glass effect */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: fixed;
@@ -72,7 +72,7 @@ nav a:hover {
 .hero {
   background: url('https://wallpaperbat.com/img/152592-hd-creativity-bulb-abstract-art-wallpaper.jpg') center/cover no-repeat;
   /*background: linear-gradient(135deg, #460C6D, #0E0E0E);*/
-  height: calc(100vh - 80px);
+  height: 100vh;
   display: flex;
   flex-direction:column;
   align-items: center;
@@ -562,3 +562,4 @@ footer {
   color: #999;
   font-size: 0.9rem;
 }
+
