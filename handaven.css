@@ -6,7 +6,7 @@
 }
 
 html {
-  /*scroll-behavior: auto;*/
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,15 +18,18 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 300px; /* slightly more for mobile */
+    padding-top: 150px; /* slightly more for mobile */
   }
 }
-
+body {
+  scroll-padding-top: 100px;
+}
 
 /* ========== NAVBAR ========== */
 header {
-  background: #0E0E0E;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(14, 14, 14, 0.086); /* slightly transparent black */
+  backdrop-filter: blur(6px); /* adds a soft glass effect */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: fixed;
   width: 100%;
   top: 0;
@@ -35,7 +38,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
-border-bottom: 3px solid #F4B400;
+  border-bottom: 3px solid #F4B400;
 }
 
 header, .btn{
@@ -65,29 +68,47 @@ nav a:hover {
   color: #F4B400;
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO/HOME SECTION ========== */
 .hero {
-  /*background: url('https://images.squarespace-cdn.com/content/v1/55cd371be4b0af9801dcd3e6/1584558183266-DAANHHLT73WMOD3H738E/crafts.jpg') center/cover no-repeat;*/
-  background: linear-gradient(135deg, #460C6D, #0E0E0E);
-  height: 100vh;
+  background: url('https://wallpaperbat.com/img/152592-hd-creativity-bulb-abstract-art-wallpaper.jpg') center/cover no-repeat;
+  /*background: linear-gradient(135deg, #460C6D, #0E0E0E);*/
+  height: calc(100vh - 80px);
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #8736dc;
   text-align: center;
   padding: 0 1rem;
+  padding-top: 80px;
 }
 
 .hero h1 {
   font-size: 4.5rem;
-  color: #F4B400;;
+  color: #e4a724;;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+  text-shadow: 5px 15px 15px rgba(1, 1, 1, 0.803);
+  font-weight: bold;
 }
 .hero h2 {
-  color: #E8D9F1; /* Soft lavender subtitle */
+  color: black; 
+  font-weight: bold;
 }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+
 .hero h1::after {
   content: attr(data-text);
   position: absolute;
@@ -105,9 +126,10 @@ nav a:hover {
   margin-bottom: 2rem;
 }
 .quote {
-  color: #E8D9F1;
+  color: blueviolet;
   font-style: italic;
   animation: fadeQuote 6s infinite;
+  font-weight: bolder;
 }
 
 @keyframes fadeQuote {
@@ -169,14 +191,9 @@ font-weight: bold;
   transform: translateY(-5px);
 }
 
-.stats h3 {
-  color: #3e7b4a;
-  font-size: 1.8rem;
-}
-
 /* ========== MISSION/VISION SECTION ========== */
 #mission {
-  background-color: #0E0E0E;
+  background: url('https://wallpapercave.com/wp/wp1917510.jpg') center/cover no-repeat;
   color: #E8D9F1;
   padding: 5rem 2rem;
 }
@@ -231,40 +248,95 @@ font-weight: bold;
   color:#F4B400;
 }
 
-/* ========== OUR TEAM ============*/
+
 #team {
-  background-color: #E8D9F1;
+  background: url("https://img.freepik.com/premium-photo/business-office-design-background-ui-ux-design_155807-285.jpg") center/cover no-repeat;
   padding: 5rem 2rem;
+  color: #E8D9F1;
 }
 
-.team-grid {
+.team-member {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 2rem;
-}
-
-.member {
+  margin-bottom: 4rem;
   background-color: #0E0E0E;
   border: 1px solid blueviolet;
-  border-radius: 15px;
-  padding: 1.5rem;
-  color: #E8D9F1;
-  width: 220px;
+  border-radius: 20px;
+  padding: 2rem;
   box-shadow: 0 6px 16px rgba(103, 2, 186, 0.384);
-  
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.member img {
-  width: 100%;
-  border-radius: 50%;
+.team-member:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(138, 43, 226, 0.6);
+}
+
+.team-member img {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
   border: 2px solid blueviolet;
+}
+
+.team-text {
+  text-align: left;
+  max-width: 500px;
+}
+
+.team-text h3 {
+  color: #F4B400;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.team-text .role {
+  color: blueviolet;
+  font-weight: bold;
   margin-bottom: 1rem;
 }
-.member:hover {
-    transform: translateY(-6px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+.team-text .bio {
+  color: #E8D9F1;
+  line-height: 1.6;
 }
+
+/* Alternate layout for right-aligned members */
+.team-member.right {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.team-member.left {
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .team-member,
+  .team-member.left,
+  .team-member.right {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-member img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .team-text {
+    text-align: center;
+  }
+}
+
 
 /* ========== SDG/SKILLS SECTION ========== */
 .sdg-grid {
@@ -274,13 +346,12 @@ font-weight: bold;
 }
 
 .sdg-card {
-  color: #ffffff;
+  color: rgb(138, 98, 143);
   background-color: #0E0E0E;
   padding: 1.5rem;
-  /*border: 4px blueviolet;*/
-  border-left: 6px solid blueviolet;;
+  border-left: 6px solid rgb(104, 67, 108);
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(84, 6, 201, 0.26);
+  box-shadow: 0 2px 8px rgb(104, 67, 108);
   transition: 0.3s;
 }
 
@@ -326,7 +397,7 @@ section {
 .card h3 {
     font-size: 1.5rem;
     margin: 15px 0;
-    color: #f4b400;
+    color: blueviolet;
 }
 
 .card p {
@@ -336,7 +407,7 @@ section {
 }
 /* ========== TESTIMONIAL SECTION ========== */
 #testimonials {
-  background: #0E0E0E;
+  /*background:url("https://wallpapercave.com/wp/wp1917542.jpg") center/cover no-repeat;*/
   color: #E8D9F1;
   padding: 5rem 2rem;
 }
@@ -355,7 +426,10 @@ section {
   padding: 1.5rem;
   max-width: 300px;
   box-shadow: 0 4px 10px rgba(244,180,0,0.3);
+  /*text-align: center;*/
 }
+
+
 .t-card img {
     width: 100%;
     height: 200px;
@@ -364,6 +438,9 @@ section {
 
 
 /* ========== CONTACT SECTION ========== */
+#contact{
+    background: url("https://wallpapers.com/images/hd/group-silhouettes-on-mountain-top-qeaazgsft83yzu7v.jpg")center/cover no-repeat; 
+}
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -384,16 +461,7 @@ textarea {
   resize: none;
 }
 
-/* ========== FOOTER ========== */
-footer {
-  background-color: #0E0E0E;
-  color: #F4B400;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-   border-top: 2px solid #460C6D;
-}
+
 
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
@@ -415,6 +483,11 @@ footer {
     padding: 4rem 1rem;
   }
 }
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.5rem; }
+  .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+}
+
 
 /* ========== SCROLL REVEAL ANIMATION ========== */
 section {
@@ -427,17 +500,65 @@ section.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+
+/* ========== FOOTER ========== */
 .contact-info {
     margin-top: 20px; 
 }
 
 .contact-info p {
-    display: flex; 
-    align-items: center; 
-    margin: 5px 0; 
+  display: flex; 
+  align-items: center; 
+  margin: 5px 0; 
 }
 .contact-info img {
-    width: 20px; 
-    height: 20px; 
-    margin-right: 10px; 
+  width: 20px; 
+  height: 20px; 
+  margin-right: 10px; 
+}
+
+footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 3rem 5%;
+  text-align: center;
+  border-top: 2px solid #460C6D;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+.footer-container h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.footer-container ul {
+  list-style: none;
+}
+.footer-container a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.footer-container a:hover {
+  color: rgb(192, 117, 27);
+}
+.social-icons img {
+  width: 30px;
+  margin: 0 8px;
+  transition: transform 0.3s;
+}
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+.footer-bottom {
+  margin-top: 1.5rem;
+  color: #999;
+  font-size: 0.9rem;
 }
